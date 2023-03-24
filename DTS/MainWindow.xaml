@@ -1,0 +1,30 @@
+<Window
+    x:Class="DTS.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DTS"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page>
+        <Page.Resources>
+
+            <DataTemplate x:Key="template1" x:DataType="x:Int32">
+                <TextBlock Text="template1" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="template2" x:DataType="x:Int32">
+                <TextBlock Text="template2" />
+            </DataTemplate>
+
+            <local:Selector x:Key="mySelector"  
+                            firstTemplate="{StaticResource template1}"  
+                            secondTemplate="{StaticResource template2}"/>
+
+        </Page.Resources>
+
+
+        <ListView x:Name="list" ItemTemplateSelector="{StaticResource mySelector}" />
+    </Page>
+</Window>
